@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;500;600&display=swap');
+
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app{
+    background-image: radial-gradient( hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+    width: 100%;
+    height: 100%;
+    padding: 45px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.scoreboard{
+    width: 550px;
+    display: flex;
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 10px;
+    margin-left: 25%;
+    align-self: center;
+    padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.board-left p{
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 34px;
+    font-weight: 600;
+    padding: 0px;
+    margin: -11px 0px 0px 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.board-right{
+    background-color: #ffffff;
+    color: hsl(229, 64%, 46%);
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 15px 25px 0px 43px;
+    width: 100px;
+    height: 80px;
+    border-radius: 10px;
+    margin: 0px 0px -5px 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.board-right span{
+    font-size: 50px;
+    font-weight: 700;
+    color: hsl(229, 25%, 31%);
+}
+
+.board-right p{
+    letter-spacing: 2px;
+    margin: 0px;
+}
+
+.gameboard{
+    background-image: url(./assets/bg-triangle.svg);
+    background-repeat: no-repeat;
+    width: 310px;
+    height: 300px;
+    margin: 150px 0px 0px 35%;
 }
