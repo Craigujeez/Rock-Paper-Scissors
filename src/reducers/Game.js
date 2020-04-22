@@ -1,9 +1,38 @@
 const initialState = {
-        score: 0,
-        userSelection: null,
+        score: 10,
+        userSelection: "",
         aiSelection:"",
         loading: true,
         verdict: "",
+}
+
+const verdict = (state,action) => {
+    let finalDecision = '';
+
+    switch (state.userSelection && state.aiSelection) {
+        case (state.userSelection === 'rock' && state.aiSelection === 'paper'):
+            finalDecision = 'loss';
+            break;
+        case (state.userSelection === 'rock' && state.aiSelection === 'scissors'):
+            finalDecision = 'win';
+            break;
+        case (state.userSelection === 'paper' && state.aiSelection === 'scissors'):
+            finalDecision = 'loss';
+            break;
+        case (state.userSelection === 'paper' && state.aiSelection === 'rock'):
+            finalDecision = 'win';
+            break;
+        case (state.userSelection === 'scissors' && state.aiSelection === 'rock'):
+            finalDecision = 'loss';
+            break;
+        case (state.userSelection === 'scissors' && state.aiSelection === 'paper'):
+            finalDecision = 'win';
+            break;
+        default:
+            break;
+    }
+
+    return finalDecision;
 }
 
 const Game = (state = initialState,action) => {
@@ -22,7 +51,7 @@ const Game = (state = initialState,action) => {
         case 'LOAD_VERDICT':
             return{
                 ...state,
-                verdict: action.verdict,
+                verdict: verdict(state,action),
                 loading: true,
             };
         case 'UPDATE_SCORE':
@@ -33,7 +62,7 @@ const Game = (state = initialState,action) => {
         case 'RESTART_GAME':
             return{
                 ...state,
-                score: '',
+                score: 0,
                 userSelection: null,
                 aiSelection:"",
                 loading: false,

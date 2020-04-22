@@ -24,37 +24,10 @@ const Step2 = (props) => {
         }
     }
 
-    const verdict = () => {
-        if(data.userSelection === 'rock'){
-            if(data.aiSelection === 'paper'){
-                return 'loss'
-            } else if(data.aiSelection === 'scissors'){
-                return 'win'
-            } else if(data.aiSelection === data.userSelection){
-                return 'draw'
-            }
-        } else if(data.userSelection === 'paper'){
-            if(data.aiSelection === 'paper'){
-                return 'draw'
-            } else if(data.aiSelection === 'scissors'){
-                return 'loss'
-            } else if(data.aiSelection === 'rock'){
-                return 'win'
-            }
-        } else if (data.userSelection === 'scissors'){
-            if(data.aiSelection === 'paper'){
-                return 'win'
-            } else if(data.aiSelection === 'scissors'){
-                return 'draw'
-            } else if(data.aiSelection === 'rock'){
-                return 'loss'
-            }
-        }
-    };
-
     const redirect = () => {
+        // const Theverdict = verdict(data.userSelection , data.aiSelection)
         setTimeout(()=>{
-            dispatch({type: 'LOAD_VERDICT', verdict: verdict()})
+            dispatch({type: 'LOAD_VERDICT'})
             setstep3(true);
         },2000)
     }
@@ -106,18 +79,18 @@ const Step2 = (props) => {
                 </div>
                 {step3 && (
                     <div className="middle">
-                        <h6>{data.verdict === 'win' ? 'You Win' : 'You Lose'}</h6>
+                        <h6>{data.verdict === 'win' ? 'You Win' : 'You Lose'}{data.verdict === 'draw' ? 'Draw' : null}</h6>
                         <Link to='/'>
                             <button 
                                 className='play-again'
                                 id={data.verdict === 'win' ? 'win' : ''}
                                 onClick={() => {
                                     if(data.verdict === 'loss'){
-                                        dispatch({type: "RESTART_GAME"})
-                                    } else dispatch({type: 'NEXT_LEVEL'})
+                                        dispatch({type: "NEXT_LEVEL"})
+                                    } else dispatch({type: 'RESTART_GAME'})
                                 }}
                             >
-                                Play Again
+                                {data.verdict === 'draw' || data.verdict === 'win' ? ('Continue'): ('Play Again')}
                             </button>
                         </Link>
                     </div>
@@ -125,7 +98,7 @@ const Step2 = (props) => {
                 
                 <div className=''>
                     <h5> The House Picked</h5>
-                    <div className={data.aiSelection}></div>
+                    <div className={data.aiSelection || 'static'}></div>
                 </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@ const Scoreboard = (props) => {
           </div>
           <div className="board-right">
             <p>score</p>
-            <span>{props.score || "0"}</span>
+            <span>{props.score}</span>
           </div>
         </div>
      );

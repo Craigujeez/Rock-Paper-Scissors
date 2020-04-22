@@ -1,13 +1,14 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
+import {useSelector,useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Scoreboard from '../components/Scoreboard';
 
 const Step1 = () => {
     const dispatch = useDispatch();
+    const data = useSelector( state =>  state.Game);
     return ( 
         <>
-            <Scoreboard/>
+            <Scoreboard score={data.score}/>
             <div className="gameboard">
                 <div className="gboard-top">
                 <Link to= "/step2">
