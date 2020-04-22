@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Scoreboard = () => {
+const Scoreboard = (props) => {
     return ( 
         <div className="scoreboard">
           <div className="board-left">
@@ -10,7 +10,7 @@ const Scoreboard = () => {
           </div>
           <div className="board-right">
             <p>score</p>
-            <span>21</span>
+            <span>{props.score || "0"}</span>
           </div>
         </div>
      );

@@ -1,13 +1,12 @@
 import React from 'react';
-import Scoreboard from './components/Scoreboard'
+import Step1 from './Steps/Step1';
 import "./App.css"
 
 function App() {
   return (
     <div className="app">
-        <Scoreboard/>
-        <div className="gameboard">
-        </div>
+        <Step1/>
+       <button className="rules">Rules</button>
     </div>
   );
 }
