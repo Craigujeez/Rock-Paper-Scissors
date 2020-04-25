@@ -1,5 +1,5 @@
 const initialState = {
-        score: 10,
+        score: 0,
         userSelection: "",
         aiSelection:"",
         loading: true,
@@ -9,27 +9,20 @@ const initialState = {
 const verdict = (state,action) => {
     let finalDecision = '';
 
-    switch (state.userSelection && state.aiSelection) {
-        case (state.userSelection === 'rock' && state.aiSelection === 'paper'):
-            finalDecision = 'loss';
-            break;
-        case (state.userSelection === 'rock' && state.aiSelection === 'scissors'):
-            finalDecision = 'win';
-            break;
-        case (state.userSelection === 'paper' && state.aiSelection === 'scissors'):
-            finalDecision = 'loss';
-            break;
-        case (state.userSelection === 'paper' && state.aiSelection === 'rock'):
-            finalDecision = 'win';
-            break;
-        case (state.userSelection === 'scissors' && state.aiSelection === 'rock'):
-            finalDecision = 'loss';
-            break;
-        case (state.userSelection === 'scissors' && state.aiSelection === 'paper'):
-            finalDecision = 'win';
-            break;
-        default:
-            break;
+    if(state.userSelection === state.aiSelection){
+        finalDecision = 'draw';
+    } if(state.userSelection === 'rock' && state.aiSelection ==='paper'){
+        finalDecision = 'loss';
+    } if(state.userSelection === 'rock' && state.aiSelection === 'scissors'){
+        finalDecision = 'win';
+    } if(state.userSelection === 'paper' && state.aiSelection === 'scissors'){
+        finalDecision = 'loss';
+    } if (state.userSelection === 'paper' && state.aiSelection === 'rock'){
+        finalDecision = 'win'
+    } if (state.userSelection === 'scissors' && state.aiSelection === 'paper'){
+        finalDecision = 'win'
+    } if (state.userSelection === 'scissors' && state.aiSelection === 'rock'){
+        finalDecision = 'loss'
     }
 
     return finalDecision;

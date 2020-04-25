@@ -12,12 +12,13 @@ const Step2 = (props) => {
 
     const updateScore = () => {
         let score = data.score;
+        const check = data.score === 0 ? (0) : (score -1)
         switch (data.verdict) {
             case 'win':
                 
                 return score + 1
             case 'loss':
-                return score - 1;
+                return check;
         
             default:
                 return score;
@@ -44,6 +45,15 @@ const Step2 = (props) => {
             case 3:
                 
                 return 'scissors';
+            case 4:
+            
+                return 'rock';
+            case 5:
+            
+                return 'paper';
+            case 6:
+                
+                return 'scissors';
         
             default:
                 return 'paper';
@@ -57,7 +67,7 @@ const Step2 = (props) => {
     const data = useSelector(state => state.Game);
 
     useEffect(()=>{
-        const aiOptions = Math.floor(Math.random() * 3);
+        const aiOptions = Math.floor(Math.random() * 6);
        AiDecision(aiOptions)
     },[]);
 
@@ -79,15 +89,19 @@ const Step2 = (props) => {
                 </div>
                 {step3 && (
                     <div className="middle">
-                        <h6>{data.verdict === 'win' ? 'You Win' : 'You Lose'}{data.verdict === 'draw' ? 'Draw' : null}</h6>
+                        <h6>
+                            {data.verdict === 'win' && 'You Win'} 
+                            {data.verdict === 'loss' && 'You Lose'}
+                            {data.verdict === 'draw' && 'Draw'}
+                        </h6>
                         <Link to='/'>
                             <button 
                                 className='play-again'
                                 id={data.verdict === 'win' ? 'win' : ''}
                                 onClick={() => {
                                     if(data.verdict === 'loss'){
-                                        dispatch({type: "NEXT_LEVEL"})
-                                    } else dispatch({type: 'RESTART_GAME'})
+                                        dispatch({type: "RESTART_GAME"})
+                                    } else dispatch({type: 'NEXT_LEVEL'})
                                 }}
                             >
                                 {data.verdict === 'draw' || data.verdict === 'win' ? ('Continue'): ('Play Again')}
