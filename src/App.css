@@ -129,3 +129,118 @@ body{
     text-transform: uppercase;
     cursor: pointer;
 }
+
+@media only screen and (max-width:375px){
+    body{
+        padding: 0px;
+    }
+
+    .app{
+        text-align: center;
+    }
+
+    .scoreboard{
+        display: flex;
+        width: 250px;
+        border: 2px solid hsl(217, 16%, 45%);
+        border-radius: 10px;
+        margin: 30px 50px;
+        padding: 10px;
+    }
+
+    .board-left p{
+        color: #ffffff;
+        text-transform: uppercase;
+        text-align: left;
+        font-size: 25px;
+        font-weight: 600;
+        margin: -11px 0px 0px 10px;
+    }
+    
+    .board-right{
+        background-color: #ffffff;
+        color: hsl(229, 64%, 46%);
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 12px;
+        width: 70px;
+        height: inherit;
+        border-radius: 10px;
+        margin:0px 0px 0px 60px;
+        padding: 10px 0px 0px 0px;
+    }
+    
+    .board-right span{
+        font-size: 22px;
+        font-weight: 700;
+        color: hsl(229, 25%, 31%);
+    }
+    
+    .board-right p{
+        letter-spacing: 2px;
+        margin: 0px;
+    }
+    
+    .gameboard{
+        background-image: url(./assets/bg-triangle.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 270px;
+        height: 200px;
+        margin: 130px 0px 0px 15%;
+        padding-top: 50px;
+    }
+    
+    #rock{
+        border-width: 15px;
+        width: 100px;
+        height: 100px;
+        box-shadow: -1px 7px  rgb(236, 229, 229) inset, 0px 5px  hsl(349, 70%, 36%);
+    }
+
+    #paper{
+        border-width: 15px;
+        width: 100px;
+        height: 100px;
+        box-shadow: -1px 7px  rgb(236, 229, 229) inset, 0px 5px  hsl(230, 71%, 41%);
+    }
+
+    #scissors{
+        border-width: 15px;
+        width: 100px;
+        height: 100px;
+        box-shadow: -1px 7px  rgb(236, 229, 229) inset, 0px 5px  hsl(39, 82%, 35%);
+    }
+
+    
+    .gboard-top{
+        display: flex;
+        justify-content: space-between;
+        margin: -32% 0px 0px -20px;
+        width: 300px;
+    }
+    
+    .gboard-bottom{
+        object-position: center;
+        margin: 20px 0px 0px 25%;
+    }
+    
+    .rules{
+        position: absolute;
+        top: 80%;
+        right: 33%;
+        outline: none;
+        width: 130px;
+        padding:10px 0px;
+        border-radius: 10px;
+        border: 2px solid hsl(217, 16%, 45%);
+        background: transparent;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}

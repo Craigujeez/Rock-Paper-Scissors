@@ -5,16 +5,16 @@ import Scoreboard from '../components/Scoreboard';
 
 const Step1 = () => {
     const dispatch = useDispatch();
-    const data = useSelector( state =>  state.Game);
+    const data = useSelector( state =>  state.Game)
     return ( 
         <>
             <Scoreboard score={data.score}/>
-            <div className="gameboard">
+            <div className="gameboard" style={{marginRight:'0px'}}>
                 <div className="gboard-top">
                 <Link to= "/step2">
                     <div 
                         className="paper" 
-                        style={{width:'140px', height:'140px'}}
+                        id="paper" 
                         onClick={()=> dispatch({type: 'LOAD_USER_SELECTION', option: 'paper'})}
                     >
                     </div>
@@ -22,7 +22,7 @@ const Step1 = () => {
                 <Link to='/step2'>
                     <div 
                         className="scissors" 
-                        style={{width:'140px', height:'140px'}}
+                        id="scissors" 
                         onClick={()=> dispatch({type: 'LOAD_USER_SELECTION', option: 'scissors'})}
                     >
                     </div>
@@ -32,7 +32,7 @@ const Step1 = () => {
                     <Link to='/step2'>
                         <div 
                             className="rock" 
-                            style={{width:'140px', height:'140px'}}
+                            id='rock'
                             onClick={()=> dispatch({type: 'LOAD_USER_SELECTION', option: 'rock'})}
                         >
                         </div>
