@@ -130,7 +130,7 @@ body{
     cursor: pointer;
 }
 
-@media only screen and (max-height:812px){
+@media only screen and (max-width:375px){
     body{
         padding: 0px;
     }
@@ -350,7 +350,7 @@ body{
     }
 }
 
-@media only screen and (max-width:375px){
+@media only screen and (max-height:812px){
     .gameboard{
         margin: 130px 0px 0px 15%;
         padding-top: 50px;
