@@ -83,39 +83,72 @@ const Step2 = (props) => {
             <Scoreboard score={data.score}/>
             <div className='step2'>
                 <div className ='box'>
-                <div>
-                    <h5> &nbsp; &nbsp; &nbsp; You Picked </h5>
-                    <div className={data.userSelection}></div>
-                </div>
-                {step3 && (
-                    <div className="middle">
-                        <h6>
-                            {data.verdict === 'win' && 'You Win'} 
-                            {data.verdict === 'loss' && 'You Lose'}
-                            {data.verdict === 'draw' && 'Draw'}
-                        </h6>
-                        <Link to='/'>
-                            <button 
-                                className='play-again'
-                                id={data.verdict === 'win' ? 'win' : ''}
-                                onClick={() => {
-                                    if(data.verdict === 'loss'){
-                                        dispatch({type: "RESTART_GAME"})
-                                    } else dispatch({type: 'NEXT_LEVEL'})
-                                }}
-                            >
-                                {data.verdict === 'draw' || data.verdict === 'win' ? ('Continue'): ('Play Again')}
-                            </button>
-                        </Link>
+                    <div className="left">
+                        <h5> &nbsp; &nbsp; &nbsp; You Picked </h5>
+                        <div 
+                            className={data.userSelection}
+                            id={data.userSelection}
+                        />
                     </div>
-                )}
-                
-                <div className=''>
-                    <h5> The House Picked</h5>
-                    <div className={data.aiSelection || 'static'}></div>
+                    {step3 && (
+                        <div className="middle">
+                            <h6>
+                                {data.verdict === 'win' && 'You Win'} 
+                                {data.verdict === 'loss' && 'You Lose'}
+                                {data.verdict === 'draw' && 'Draw'}
+                            </h6>
+                            <Link to='/'>
+                                <button 
+                                    className='play-again'
+                                    id={data.verdict === 'win' ? 'win' : ''}
+                                    onClick={() => {
+                                        if(data.verdict === 'loss'){
+                                            dispatch({type: "RESTART_GAME"})
+                                        } else dispatch({type: 'NEXT_LEVEL'})
+                                    }}
+                                >
+                                    {data.verdict === 'draw' || data.verdict === 'win' ? ('Continue'): ('Play Again')}
+                                </button>
+                            </Link>
+                        </div>
+                    )}
+                    
+                    <div className='right'>
+                        <h5> The House Picked</h5>
+                        <div 
+                            className={data.aiSelection || 'static'}
+                            id={data.aiSelection || 'static'}
+                        />
+                    </div>
                 </div>
+                <div id='middle'>
+                    {step3 && (
+                        <>
+                                <h6>
+                                    {data.verdict === 'win' && 'You Win'} 
+                                    {data.verdict === 'loss' && 'You Lose'}
+                                    {data.verdict === 'draw' && 'Draw'}
+                                </h6>
+                                <Link to='/'>
+                                    <button 
+                                        className='play-again'
+                                        id={data.verdict === 'win' ? 'win' : ''}
+                                        onClick={() => {
+                                            if(data.verdict === 'loss'){
+                                                dispatch({type: "RESTART_GAME"})
+                                            } else dispatch({type: 'NEXT_LEVEL'})
+                                        }}
+                                    >
+                                        {data.verdict === 'draw' || data.verdict === 'win' ? ('Continue'): ('Play Again')}
+                                    </button>
+                                </Link>
+                        </>
+                        )}
                 </div>
             </div>
+
+
+        <button className="rules">Rules</button>
             
         </>
      );

@@ -108,3 +108,220 @@
     cursor: pointer;
     box-shadow: -1px 10px  rgb(236, 229, 229) inset, 0px 8px  hsl(230, 71%, 41%);
 }
+
+@media only screen and (max-width:375px){
+    .step2{
+        padding: 0px;
+    }
+    
+    .box{
+        display: flex;
+        justify-content: space-evenly;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 600;
+        width: 350px;
+        margin: 0px;
+    }
+    
+    #middle h6{
+        margin: 10px 0px;
+        font-size: 40px;
+        color: #ffffff;
+    }
+    
+    .middle{
+        display: none;
+    }
+
+    #middle{
+        display: block;
+        text-align: center;
+        align-content: center;
+        margin: 90px 0px 0px 0px;
+    }
+    
+    .play-again{
+        width: 150px;
+        height: 40px;
+        outline: none;
+        background-color: #ffffff;
+        padding: 0px 0px;
+        color: red;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 3px;
+        letter-spacing: 1px;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    
+    #win{
+        color: black;
+    }
+    
+    .headers{
+        display: flex;
+        justify-content: space-evenly;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-size: 36px;
+        font-weight: 600;
+        width: 800px;
+        margin: 3% 0px 0px 9%;
+    }
+    
+    .static{
+        border-radius: 50%;
+        width: 180px;
+        height: 180px;
+        background-repeat: no-repeat;
+        background-color: rgb(23, 27, 49);
+        opacity: 0.4;
+        background-position: center;
+        cursor: pointer;
+    }
+    
+    .seperate{
+        margin-left: 0px;
+    }
+    
+    #rock{
+        border-width: 12px;
+        width: 100px;
+        height: 100px;
+        box-shadow: -1px 7px  rgb(236, 229, 229) inset, 0px 5px  hsl(349, 70%, 36%);
+    }
+
+    #paper{
+        border-width: 12px;
+        width: 100px;
+        height: 100px;
+        box-shadow: -1px 7px  rgb(236, 229, 229) inset, 0px 5px  hsl(230, 71%, 41%);
+    }
+
+    #scissors{
+        border-width: 12px;
+        width: 100px;
+        height: 100px;
+        box-shadow: -1px 7px  rgb(236, 229, 229) inset, 0px 5px  hsl(39, 82%, 35%);
+    }
+
+    .static{
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media only screen and (max-width:414px){
+    .step2{
+        padding: 0px;
+    }
+    
+    .box{
+        display: flex;
+        justify-content: space-evenly;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 600;
+        width: 350px;
+        margin-left: 30px;
+        padding: 0px;
+    }
+    
+    #middle h6{
+        margin: 10px 0px;
+        font-size: 40px;
+        color: #ffffff;
+    }
+    
+    .middle{
+        display: none;
+    }
+
+    #middle{
+        display: block;
+        text-align: center;
+        align-content: center;
+        margin: 90px 0px 0px 0px;
+    }
+    
+    .play-again{
+        width: 150px;
+        height: 40px;
+        outline: none;
+        background-color: #ffffff;
+        padding: 0px 0px;
+        color: red;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 3px;
+        letter-spacing: 1px;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    
+    #win{
+        color: black;
+    }
+    
+    .headers{
+        display: flex;
+        justify-content: space-evenly;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-size: 36px;
+        font-weight: 600;
+        width: 800px;
+        margin: 3% 0px 0px 9%;
+    }
+    
+    .static{
+        border-radius: 50%;
+        width: 180px;
+        height: 180px;
+        background-repeat: no-repeat;
+        background-color: rgb(23, 27, 49);
+        opacity: 0.4;
+        background-position: center;
+        cursor: pointer;
+    }
+    
+    .seperate{
+        margin-left: 0px;
+    }
+    
+    #rock{
+        border-width: 12px;
+        width: 100px;
+        height: 100px;
+        box-shadow: -1px 7px  rgb(236, 229, 229) inset, 0px 5px  hsl(349, 70%, 36%);
+    }
+
+    #paper{
+        border-width: 12px;
+        width: 100px;
+        height: 100px;
+        box-shadow: -1px 7px  rgb(236, 229, 229) inset, 0px 5px  hsl(230, 71%, 41%);
+    }
+
+    #scissors{
+        border-width: 12px;
+        width: 100px;
+        height: 100px;
+        box-shadow: -1px 7px  rgb(236, 229, 229) inset, 0px 5px  hsl(39, 82%, 35%);
+    }
+
+    .static{
+        width: 120px;
+        height: 120px;
+    }
+}
