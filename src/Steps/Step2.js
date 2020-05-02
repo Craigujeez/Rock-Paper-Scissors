@@ -1,11 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React,{useState,useEffect} from 'react';
-import {Link} from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux';
-import Scoreboard from '../components/Scoreboard';
 import '../styles/step2.css'
 
-const Step2 = (props) => {
+const Step2 = ({stage, setstage}) => {
     const dispatch = useDispatch();
 
     const [step3, setstep3] = useState(false)
@@ -68,8 +66,10 @@ const Step2 = (props) => {
 
     useEffect(()=>{
         const aiOptions = Math.floor(Math.random() * 6);
-       AiDecision(aiOptions)
-    },[]);
+        if(stage === 2){
+            AiDecision(aiOptions)
+        }
+    },[stage]);
 
     useEffect(() => {
         dispatch({type:'UPDATE_SCORE', score: updateScore()})
@@ -79,15 +79,12 @@ const Step2 = (props) => {
     
 
     return ( 
-        <>
-            <Scoreboard score={data.score}/>
             <div className='step2'>
                 <div className ='box'>
                     <div className="left">
                         <h5> &nbsp; &nbsp; &nbsp; You Picked </h5>
                         <div 
                             className={data.userSelection}
-                            id={data.userSelection}
                         />
                     </div>
                     {step3 && (
@@ -97,19 +94,18 @@ const Step2 = (props) => {
                                 {data.verdict === 'loss' && 'You Lose'}
                                 {data.verdict === 'draw' && 'Draw'}
                             </h6>
-                            <Link to='/'>
                                 <button 
                                     className='play-again'
-                                    id={data.verdict === 'win' ? 'win' : ''}
                                     onClick={() => {
                                         if(data.verdict === 'loss'){
                                             dispatch({type: "RESTART_GAME"})
                                         } else dispatch({type: 'NEXT_LEVEL'})
+                                        
+                                        setstage(1);
                                     }}
                                 >
-                                    {data.verdict === 'draw' || data.verdict === 'win' ? ('Continue'): ('Play Again')}
+                                    Play Again
                                 </button>
-                            </Link>
                         </div>
                     )}
                     
@@ -117,11 +113,10 @@ const Step2 = (props) => {
                         <h5> The House Picked</h5>
                         <div 
                             className={data.aiSelection || 'static'}
-                            id={data.aiSelection || 'static'}
                         />
                     </div>
                 </div>
-                <div id='middle'>
+                <div className='bottom'>
                     {step3 && (
                         <>
                                 <h6>
@@ -129,28 +124,22 @@ const Step2 = (props) => {
                                     {data.verdict === 'loss' && 'You Lose'}
                                     {data.verdict === 'draw' && 'Draw'}
                                 </h6>
-                                <Link to='/'>
                                     <button 
                                         className='play-again'
-                                        id={data.verdict === 'win' ? 'win' : ''}
                                         onClick={() => {
                                             if(data.verdict === 'loss'){
                                                 dispatch({type: "RESTART_GAME"})
                                             } else dispatch({type: 'NEXT_LEVEL'})
+
+                                            setstage(1);
                                         }}
                                     >
-                                        {data.verdict === 'draw' || data.verdict === 'win' ? ('Continue'): ('Play Again')}
+                                        Play Again
                                     </button>
-                                </Link>
                         </>
                         )}
                 </div>
             </div>
-
-
-        <button className="rules">Rules</button>
-            
-        </>
      );
 }
  
